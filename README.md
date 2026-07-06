@@ -2,6 +2,8 @@
 
 A privacy-first, local-only dashboard for tracking daily computer usage, AI news, and email summaries — with an auto-generated weekly work report.
 
+> Name: **Dayp** = **Day** + **P** — "day day up" (天天向上), a little pun on daily improvement.
+
 > [中文说明](./README.zh-CN.md)
 
 ## Features
