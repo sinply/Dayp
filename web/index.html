@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayp - 每日使用报告</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>Dayp</h1>
+  <span class="subtitle">每日使用报告</span>
+  <span id="clock" class="clock"></span>
+  <button id="refreshBtn" class="btn btn-header" title="刷新所有数据">刷新</button>
+</header>
+
+<main>
+  <section class="card full">
+    <div class="card-head">
+      <h2>周报总结</h2>
+      <button id="copySummary" class="btn">复制周报</button>
+    </div>
+    <pre id="summaryText" class="summary-box">加载中...</pre>
+  </section>
+
+  <section class="card">
+    <h2>今日软件使用</h2>
+    <div class="usage-header">
+      <span id="todayTotal" class="big-num">--</span>
+      <span class="label">总活跃时长</span>
+    </div>
+    <div class="chart-wrap"><canvas id="todayChart"></canvas></div>
+    <div id="todayList" class="app-list"></div>
+  </section>
+
+  <section class="card">
+    <h2>近 7 日趋势</h2>
+    <div class="chart-wrap tall"><canvas id="weekChart"></canvas></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>AI 热点新闻</h2>
+      <div class="filter-group" id="newsFilter">
+        <button class="chip active" data-source="">全部</button>
+        <button class="chip" data-source="36kr">36氪</button>
+        <button class="chip" data-source="leiphone">雷锋</button>
+        <button class="chip" data-source="ifanr">爱范儿</button>
+        <button class="chip" data-source="aibase">AIbase</button>
+        <button class="chip" data-source="huxiu">虎嗅</button>
+        <button class="chip" data-source="hn">HN</button>
+      </div>
+    </div>
+    <div id="newsList" class="news-list">加载中...</div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>近期邮件</h2>
+      <div class="filter-group">
+        <select id="emailDays" class="select">
+          <option value="1">近 1 天</option>
+          <option value="3">近 3 天</option>
+          <option value="7" selected>近 7 天</option>
+          <option value="14">近 14 天</option>
+          <option value="30">近 30 天</option>
+        </select>
+      </div>
+    </div>
+    <div id="emailList" class="email-list">加载中...</div>
+    <div class="email-hint">点击邮件可在 Outlook 中打开</div>
+  </section>
+</main>
+
+<footer>
+  <span>Dayp v0.2 · 本地运行 · 数据存于 SQLite</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

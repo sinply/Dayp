@@ -1,0 +1,258 @@
+:root {
+  --bg: #0f1117;
+  --card: #1a1d27;
+  --border: #2a2e3a;
+  --text: #e4e6eb;
+  --muted: #8b8f9a;
+  --accent: #4f8cff;
+  --accent2: #36c5a8;
+  --warn: #ffb86c;
+  --danger: #ff6b6b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #151823, var(--bg));
+}
+header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle { color: var(--muted); font-size: 14px; }
+.clock { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 14px; }
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 24px 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.card.full { grid-column: 1 / -1; }
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.card-head h2 { margin-bottom: 0; }
+
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: opacity .2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-header { margin-left: 12px; padding: 6px 18px; }
+
+.filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.chip {
+  background: var(--border);
+  color: var(--muted);
+  border: none;
+  padding: 4px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all .2s;
+}
+.chip:hover { color: var(--text); }
+.chip.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.select {
+  background: var(--border);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.select:focus { outline: 1px solid var(--accent); }
+
+.usage-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.big-num {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.label { color: var(--muted); font-size: 13px; }
+
+.chart-wrap { position: relative; height: 200px; margin-bottom: 12px; }
+.chart-wrap.tall { height: 280px; }
+
+.app-list, .news-list, .email-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.app-list::-webkit-scrollbar, .news-list::-webkit-scrollbar, .email-list::-webkit-scrollbar { width: 6px; }
+.app-list::-webkit-scrollbar-thumb, .news-list::-webkit-scrollbar-thumb, .email-list::-webkit-scrollbar-thumb {
+  background: var(--border); border-radius: 3px;
+}
+
+.app-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.app-item:last-child { border-bottom: none; }
+.app-name { flex: 1; }
+.app-bar {
+  flex: 2;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.app-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.app-time { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 70px; text-align: right; }
+.app-pct { color: var(--accent2); font-variant-numeric: tabular-nums; min-width: 50px; text-align: right; }
+
+.summary-box {
+  background: #0d0f15;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.news-item {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .2s;
+}
+.news-item:hover { color: var(--accent); }
+.news-item:last-child { border-bottom: none; }
+.news-title { display: block; margin-bottom: 4px; }
+.news-meta { color: var(--muted); font-size: 11px; }
+.news-score {
+  display: inline-block;
+  background: var(--border);
+  color: var(--warn);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+.news-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.news-tag.source-36kr { background: #2d3a1a; color: #6bcf3f; }
+.news-tag.source-leiphone { background: #3a1a2d; color: #e85d75; }
+
+.email-item.clickable {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px 8px;
+  margin: 4px -8px;
+  transition: background .2s;
+}
+.email-item.clickable:hover {
+  background: rgba(79, 140, 255, 0.08);
+}
+.email-item.clickable.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.email-hint {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.email-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.email-item:last-child { border-bottom: none; }
+.email-subject { font-weight: 500; margin-bottom: 3px; }
+.email-from { color: var(--accent2); font-size: 12px; }
+.email-time { color: var(--muted); font-size: 11px; margin-left: 8px; }
+.email-snippet { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; }
+  .card.full { grid-column: 1; }
+}

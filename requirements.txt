@@ -1,0 +1,7 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pywin32>=306
+psutil>=5.9.0
+requests>=2.31.0
+python-dateutil>=2.9.0
+feedparser>=6.0.0

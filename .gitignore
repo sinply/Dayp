@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.playwright-mcp/
+data/
+dayp-dashboard.png
+*.log
+.idea/
+.vscode/
